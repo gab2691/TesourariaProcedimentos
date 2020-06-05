@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <div class="modal-header-procd d-flex align-items-center justify-content-between" th:each="procds : ${listProced}">
+        <div class="box-details-procd d-flex align-items-center">
+            <input type="hidden" th:value="${procds.getId()}" class="procdId">
+            <img src="/imagens/logo-white.png" class="img-logo-procd">
+            <div class="box-relative-leg">
+                <p class="title-procd-modal" th:if="${procds.getSistemas() != null}" th:text="${procds.getSistemas().getSigla()}">
+                <p class="legenda-modal legenda-sistema-modal">Sistema</p></p>
+            </div>
+
+            <span class="icon-keyboard_arrow_right"></span>
+
+            <div class="box-relative-leg">
+                <p class="title-procd-modal" th:if="${procds.getPalavraChave() != null}" th:text="${procds.getPalavraChave().getChave()}">
+                <p class="legenda-modal legenda-pChave-modal">Palavra chave</p></p>
+            </div>
+        </div>
+
+        <div class="box-files-procd d-flex align-items-center justify-content-around">
+            <p th:if="${procds.getDocumentos().size() != 0}"><span class="icon-inbox-document-text-list"></span></p>
+            <p class="icon-image-relative" th:if="${procds.getImagem().size() != 0}"><span class="icon-pictures-list"></span>
+                <span class="image-percetagem" th:each="imagens : ${procds.getImagem()}" th:if="${imagens.getPorcetagem() != null}" th:text="${#numbers.formatDecimal(imagens.getPorcetagem(),0,2) + '%'}"></span>
+            </p>
+        </div>
+    </div>
+</html>
+

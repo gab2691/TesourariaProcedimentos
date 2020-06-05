@@ -1,0 +1,144 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://java.sun.com/xml/ns/javaee">
+<div class="container-procd-details d-flex align-items-center flex-column" >
+
+    <div class="d-flex align-items-center header-proc-details justify-content-between">
+        <div class="d-flex align-items-center justify-content-around box-img-title-procd-details">
+            <img src="/imagens/santander_preto.svg" class="img-logo-procd-details">
+            <p class="title-proc-details">Consultar procedimento</p>
+        </div>
+        <button type="button" class="close close-proced-details" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="sub-header d-flex align-items-center">
+        <p class="date-proc">Data do procedimento :  <span th:text="${procedimento.formatStringToDate(procedimento.getDataProcedimento())}"></span></p>
+        <div class="d-flex align-items-lg-end box-button-procd-details justify-content-around">
+            <input type="hidden" class="id-procd-options" th:value="${procedimento.getId()}">
+            <p class="options-action-procd exclud-procd">Excluir</p>
+            <p class="options-action-procd alter-procd">Alterar</p>
+        </div>
+    </div>
+
+    <div class="body-procd-details d-flex align-items-center  flex-wrap">
+        <div class="box-details-inf d-flex align-items-center justify-content-lg-start">
+            <div class="left-box-details d-flex align-items-center">
+                <p class="sub-title-proc-details"> Sistema: <span class="sigla-proc-object sigla-text-change" th:text="${procedimento.getSistemas().getSigla()}"></span></p>
+                &nbsp <span class="icon-keyboard_arrow_right_byId arrow_right_rotate"></span>
+
+                <div class="d-flex flex-column box-sistema-alter">
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">HMR</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">BOE</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">MRM</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">AOF</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">PVD</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">CPT</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">PNE</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">E2-GBO</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">WZ-SIGOM</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">MIS-ODS</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">COM-CONCILIADOR-FOBO</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">SBK-SNR BK SOLUTION</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">OUTROS</p>
+                    </div>
+                    <div class="d-flex box-opt-system-text">
+                        <p class="sistem-opt-text">RTS-REPORT SERVER</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-box-details d-flex align-items-center">
+                <p class="sub-title-proc-details"> Palavra chave:</p>
+                <input class="sigla-proc-object ipt-alter-procd ipt-alter-palavra" th:value="${procedimento.getPalavraChave().getChave()}"/>
+            </div>
+        </div>
+
+        <div class="box-details-inf d-flex align-items-center justify-content-lg-start">
+            <div class="left-box-details d-flex align-items-center">
+                <p class="sub-title-proc-details"> JOB:</p>
+                <input class="sigla-proc-object ipt-alter-procd ipt-alter-job" th:if="${procedimento.getMalhaBatch() != null}" th:value="${procedimento.getMalhaBatch().getNomeJob()}"/>
+                <input class="sigla-proc-object ipt-alter-procd ipt-alter-job" th:if="${procedimento.getMalhaBatch() == null}"/>
+            </div>
+
+            <div class="right-box-details d-flex align-items-center">
+                <p class="sub-title-proc-details"> Ticket:</p>
+                <input class="sigla-proc-object ipt-alter-procd ipt-alter-ticket" th:if="${procedimento.getTicket() != null}" th:value="${procedimento.getTicket()}"/>
+                <input class="sigla-proc-object ipt-alter-procd ipt-alter-ticket" type="text" th:if="${procedimento.getTicket() == null}"/>
+            </div>
+        </div>
+
+        <div class="position-relative box-relative-plus">
+            <label id="label-image" class="position-absolute label-absolute">
+                <span class="icon-plus add-images"></span>
+                <input type="file" name="docsToUploadDetails" id="docsToUploadDetails" size="1" multiple/>
+            </label>
+
+            <div class="box-files-details-procd d-flex align-items-center box-docs flex-wrap">
+                <div th:each="docs : ${procedimento.getDocumentos()}">
+                    <div th:if="${procedimento.getDocumentos().size() != 0}" th:txt="${docs.getExtensaoArquivo(docs.getNomeArquivo())}">
+                        <div class="container-preview container-previewById">
+                            <span class="icon-cancel-circle icon-cancel-byId"></span>
+                            <div class="modal-preview-arch modal-preview-ById d-flex flex-column align-items-center">
+                                <span class="icon-inbox-document-text-details icon-inbox-document-ByID"></span>
+                                <p class="name-file-arch name-file-arch-ByID" th:text="${docs.getNomeArquivo()}"></p>
+                                <input type="hidden" class="procd-id-hidden" th:value="${procedimento.getId()}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="no-docs-procd" th:if="${procedimento.getDocumentos().size() == 0}">Nenhum documento cadastrado</p>
+            </div>
+        </div>
+
+        <div class="position-relative box-relative-plus">
+            <label id="label-file" class="position-absolute label-absolute">
+                <span class="icon-plus add-images"></span>
+                <input type="file" name="imageToUploadDetails" id="imageToUploadDetails" size="1" multiple/>
+            </label>
+
+            <div class="box-files-details-procd d-flex align-items-center justify-content-around box-images flex-wrap">
+                <div  class="position-relative" th:if="${procedimento.getImagem().size() != 0}" th:each="imagens : ${procedimento.getImagem()}">
+                    <span class="icon-cancel-circle icon-cancel-byId-images"></span>
+                    <input type="hidden" class="id-procd-hiden" th:value="${imagens.getId()}">
+                    <div class="box-imagens-details d-flex flex-column align-items-center">
+                        <img class="image-details" th:src="${'/images/' + imagens.getNomeImagem()}">
+                        <p class="image-name-procd-details" th:text="${imagens.getNomeImagem()}"></p>
+                    </div>
+                </div>
+                <p class="no-image-procd" th:if="${procedimento.getImagem().size() == 0}">Nenhuma imagem cadastrada</p>
+            </div>
+        </div>
+
+        <div class="box-details-inf d-flex align-items-center justify-content-lg-start">
+            <textarea type="text" class="dec-proc-details" th:text="${procedimento.getDescProcedimento()}"></textarea>
+        </div>
+
+
+
+    </div>
+</div>
+</html>

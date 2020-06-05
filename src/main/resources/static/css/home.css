@@ -1,0 +1,397 @@
+body{
+    /*background: linear-gradient(to bottom, rgb(211, 16, 39), rgb(234, 56, 77));*/
+    /*background: linear-gradient(to bottom, rgb(229, 45, 39), rgb(179, 18, 23));*/
+    /*background: linear-gradient(to top right, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);*/
+    /*background: linear-gradient(to right, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);*/
+    background: #19436e;
+}
+
+.main-form{
+    width: 60%;
+    height: 93%;
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 2vw;
+    box-shadow: 0px 17px 20px -14px rgba(10,9,10,1);
+}
+
+.container-fields{
+    width: 80%;
+    height: 80%;
+}
+
+.title-container{
+    font-size: 2vw;
+    color: #c13232;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-inpus{
+    width: 100%;
+    height: 3vw;
+
+}
+
+.icon-ipt{
+    width: 49%;
+    height: 100%;
+    background-color: #eeeeee;
+    position: relative;
+}
+
+.ipt-text{
+    background-color: transparent;
+    border: none;
+    width: 88%;
+    outline: 0;
+    height: 100%;
+    font-family: 'Sen', sans-serif;
+    color: black;
+    font-size: 1vw;
+}
+
+.span-text{
+    font-family: 'Sen', sans-serif;
+    color: black;
+    margin-left: .2vw;
+    font-size: 1vw;
+}
+
+.icon-keyboard:before {
+    content: "\e905";
+    color: grey;
+    font-size: 2vw;
+    margin-left: .4vw;
+}
+
+.icon-ticket:before {
+    content: "\e906";
+    color: grey;
+    font-size: 2vw;
+    margin-left: .4vw;
+}
+
+.icon-calendar:before {
+    content: "\e907";
+    color: grey;
+    font-size: 1.6vw;
+    margin-left: .4vw;
+    font-width: bold;
+}
+
+.icon-drive_folder_upload:before {
+    content: "\e908";
+    color: grey;
+    font-size: 2.2vw;
+    margin-left: .4vw;
+    font-width: bold;
+}
+
+.icon-pictures:before {
+    content: "\e909";
+    color: grey;
+    font-size: 2.2vw;
+    margin-left: .4vw;
+    font-width: bold;
+}
+
+
+
+::placeholder {
+    color: black;
+}
+
+select option {
+    background: #eeeeee;
+    color: black;
+    font-family: 'Sen', sans-serif;
+}
+
+.form-control{
+    background: #eeeeee;
+    color: black;
+    font-family: 'Sen', sans-serif;
+    border: none;
+    outline: 0;
+    height: 100%;
+}
+
+input[type=file] {
+    display: none;
+}
+
+#label-file, #label-file-image{
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-ipt {
+    width: 43%;
+    height: 2.7vw;
+    background-color: transparent;
+    border: 1px solid #35afe4;
+    border-radius: 10px;
+    outline: 0;
+    text-transform: uppercase;
+    color: #35afe4;
+    cursor: pointer;
+    font-size: 1vw;
+    font-family: 'Sen', sans-serif;
+    transition: all .5s ease-in-out;
+}
+
+.btn-ipt:hover{
+    background-color: #35afe4;
+    color: white;
+}
+
+.btn-log-santa{
+    position: absolute;
+    background: #fff;
+    width: 5vw;
+    height: 5vw;
+    left: 26vw;
+    border-radius: 50px;
+    top: 4.2vw;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.img-btn{
+    width: 3vw;
+    height: 3vw;
+}
+
+.textArea-proced{
+    width: 100%;
+    background: #eeeeee;
+    border: none;
+    resize: none;
+    font-family: 'Sen', sans-serif;
+    padding-left: .5vw;
+    font-size: 1vw;
+    transition: .3s ease-in-out;
+}
+
+.container-textArea{
+    width: 100%;
+    height: 10vw;
+}
+
+button:focus {
+    outline: 0;
+}
+
+
+.cont-files{
+    position: absolute;
+    padding: .6vw;
+    font-family: 'Sen', sans-serif;
+    font-size: .8vw;
+    color: white;
+    background-color: #19436e;
+    border-radius: 102px;
+    left: 22.3vw;
+    top: 3.7vw;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.modal-preview-file{
+    top: 8vw;
+}
+
+.modal-preview-arqui{
+    top: 8vw;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -9999999;
+    position: absolute;
+    background: black;
+    opacity: 0;
+    transition: .2s ease-in-out;
+    transform-origin: bottom center;
+}
+
+.first{
+    opacity: 0;
+    z-index: 99;
+    position: absolute;
+    top: 41%;
+    left: 47%;
+    transition: .1s ease-in-out;
+}
+
+.overlay-procd{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -9999999;
+    position: absolute;
+    background: black;
+    opacity: 0;
+    transition: .2s ease-in-out;
+    transform-origin: bottom center;
+}
+
+.first-procd{
+    opacity: 0;
+    z-index: 99;
+    position: absolute;
+    top: 41%;
+    left: 47%;
+    transition: .1s ease-in-out;
+}
+
+.img-preview{
+    width: 11vw;
+    height: 10vw;
+}
+
+
+.box-preview-img {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    position: relative;
+    margin: .6vw;
+    border-radius: 15px;
+}
+
+.icon-cancel-image:before{
+    content: "\ea0d";
+    left: 10.5vw;
+    top: -1vw;
+    color: #1f1818;
+    font-size: 1.4vw;
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.icon-cancel-circle:before {
+    content: "\ea0d";
+    left: 5.2vw;
+    color: #1f1818;
+    top: -.3vw;
+    font-size: 1.1vw;
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.name-file{
+    display: none;
+}
+
+.modal-header{
+    background-color: #332c2c;
+    color: white;
+}
+
+.close {
+    color: white;
+}
+
+
+.icon-document-file-pdf:before {
+    content: "\e90a";
+    font-size: 5vw;
+    color: #650707;
+}
+
+.icon-document-file-sql:before {
+    content: "\e90b";
+    font-size: 5vw;
+    color: #2323af;
+}
+
+.icon-document-file-docx:before {
+    content: "\e90d";
+    font-size: 5vw;
+    color: #5050b7;
+}
+
+.icon-document-file-xlsx:before {
+    content: "\e90e";
+    font-size: 5vw;
+    color: #1f4c1f;
+}
+
+.icon-document-file-txt:before {
+    content: "\e90f";
+    font-size: 5vw;
+}
+
+.icon-document-file-zip:before {
+    content: "\e910";
+    font-size: 5vw;
+    color: #ab4f4f;
+}
+
+.icon-inbox-document-text:before {
+    content: "\e911";
+    font-size: 5vw;
+    color: #2b2b2b;
+}
+
+.icon-inbox-document-text-list:before {
+    content: "\e911";
+    font-size: 2vw;
+    color: white;
+}
+
+
+.icon-document-file-numbers:before {
+    content: "\e912";
+    font-size: 5vw;
+}
+
+.icon-user-check:before {
+    content: "\e975";
+    color: grey;
+    font-size: 2.2vw;
+    margin-left: .4vw;
+}
+
+.icon-cog:before {
+    content: "\e994";
+    color: grey;
+    font-size: 2.2vw;
+    margin-left: .4vw;
+    margin-right: .4vw;
+}
+
+.modal-preview-arch{
+    margin-right: 1vw;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+}
+
+.container-preview{
+    position: relative;
+    width: 7vw;
+    text-align: center;
+}
+
+.name-file-arch{
+    font-size: .8vw;
+    font-family: 'Sen', sans-serif;
+    color: black;
+}
+
+.block-pointer{
+    cursor: not-allowed;
+}
+
+.box-disable{
+    opacity: .4;
+}
+
